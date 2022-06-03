@@ -14,7 +14,7 @@ export class RequestInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const headers = request.headers.set('Content-Type', 'application/json')
-                                  // .set('Authorization',`Bearer $sessionStorage.getKey('auth')`)
+                                   .set('Authorization',`Bearer XyzABC`)
     const cloneReq = request.clone({headers});                              
     return next.handle(cloneReq);
   }

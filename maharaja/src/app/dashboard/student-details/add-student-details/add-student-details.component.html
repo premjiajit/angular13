@@ -1,1 +1,55 @@
 <p>add-student-details works!</p>
+<h1> Multi form </h1>
+<mat-card>
+    <mat-card-title>Dynamic Student Form </mat-card-title>
+   
+    <div class="" >
+        <form [formGroup]="studentDetailsForm" (ngSubmit)="onSubmit()" >
+            <section>
+       <label for="first-name">First Name: </label>
+        <input type="text"  placeholder="Name" formControlName="studentName" />
+
+        <label for="branch-name">branch Name: </label>
+        <input type="text"  placeholder="branch" formControlName="branch" />
+
+        <label for="phoneNumber">phoneNumber: </label>
+        <input type="text"  placeholder="phoneNumber" formControlName="phoneNumber" />
+            </section>
+        <section>
+            <div class="example-button-row">
+              <!-- <button mat-button color="primary" (click)="addSubject()">Add Subject Details</button> -->
+              <button mat-flat-button color="primary" (click)="addSubject()">Add Subject Details</button>
+              <button mat-flat-button color="accent" (click)="removeAll()">Remove all</button>
+            </div>
+          </section>
+          <mat-divider></mat-divider>
+          <section formArrayName="subject">
+            <mat-card *ngFor="let subItems of subjectFormArray().controls; let i=index">
+                <div [formGroupName]="i">
+                <section>
+               <label for="branch-name">subjectName : </label>
+               <input type="text"  placeholder="branch" formControlName="subjectName" />
+               </section>
+               <section>
+                <label for="textbook">textbook : </label>
+                <input type="text"  placeholder="textbook" formControlName="textbook" />
+                </section>
+                <section>
+                <label for="records">records : </label>
+                <input type="text"  placeholder="records" formControlName="records" />
+                </section>
+                <button mat-flat-button color="warn" (click)="removeSubject(i)" >Remove Subject {{i +1}}</button>
+                </div>
+
+            </mat-card>
+
+          </section>
+    </form>
+</div>
+
+  </mat-card>
+  <br>
+  <mat-card>
+    <mat-card-title>Form response</mat-card-title>
+ {{this.studentDetailsForm.value |json}}
+  </mat-card>

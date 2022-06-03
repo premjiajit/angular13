@@ -22,15 +22,14 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     RouterModule,
     BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
     SharedModule,
     CoreModule,
-    HttpClientModule 
+    HttpClientModule ,
+    
   ],
   exports: [
     RouterModule,
-    BrowserModule
+  //  ReactiveFormsModule
    ],
   providers: [],
   bootstrap: [AppComponent]

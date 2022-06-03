@@ -11,6 +11,6 @@ export class StudentApiService {
 
   getToDoList() : Observable<any>{
     const dummypath = 'https://jsonplaceholder.typicode.com/todos';
-   return this.extApi.get(dummypath);
+   return this.extApi.getCall(dummypath);
   }
 }
