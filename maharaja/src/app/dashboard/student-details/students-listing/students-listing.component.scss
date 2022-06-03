@@ -1,0 +1,12 @@
+example-container {
+    height: 400px;
+    overflow: auto;
+  }
+  
+  table {
+    width: 100%;
+    max-height: 400px;
+  }
+  mat-table{
+    max-height: 400px !important;
+  }

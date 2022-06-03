@@ -1,0 +1,43 @@
+
+<div style="border: solid red 1px ; margin: 4px">
+<h1>Hi app.component</h1>
+<section>
+  <div class="example-button-row">
+    <button mat-raised-button  routerLink="/">Home</button>
+    <button mat-raised-button color="primary" routerLink="/login" >Login</button>
+    <button mat-raised-button color="accent" routerLink="/dashboard" routerLinkActive="active">Dashboard</button>
+    <button mat-raised-button color="warn" routerLink="/dashboard/student-details">Student Details</button>
+    <button mat-raised-button disabled>Disabled</button>
+  </div>
+</section>
+<nav>
+  <a routerLink="/login" routerLinkActive="active">Login</a>
+  <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+  <a routerLink="/admin" routerLinkActive="active">Admin</a>
+  <a routerLink="/login" routerLinkActive="active">Login</a>
+  <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
+</nav>
+
+<mat-form-field appearance="outline" FloatLabelType="never " 
+hideRequiredMarker="false"
+> 
+  <mat-label>Toppings</mat-label>
+  <mat-select [formControl]="toppings" multiple>
+    <mat-select-trigger>
+      {{toppings.value ? toppings.value[0] : ''}}
+      <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+        (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+      </span>
+    </mat-select-trigger>
+    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<h1> Count :  {{count | json}}</h1>
+<button (click)="inc()">Increment</button>
+<button (click)="dec()">Decrement</button>
+<button (click)="reset()">Reset</button>
+
+<router-outlet></router-outlet>
+
+</div>
